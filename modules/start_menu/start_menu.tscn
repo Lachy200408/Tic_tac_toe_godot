@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://ei7crhd20in"]
+
+[ext_resource type="Script" path="res://modules/start_menu/scripts/start_menu.gd" id="1_fa60w"]
+[ext_resource type="Theme" uid="uid://dqhp174f0kn8n" path="res://modules/start_menu/themes/start_menu.tres" id="1_oi7bf"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wfvo8"]
+
+[node name="StartMenu" type="Node2D"]
+
+[node name="GridContainer" type="PanelContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = ExtResource("1_oi7bf")
+script = ExtResource("1_fa60w")
+
+[node name="Background" type="Sprite2D" parent="GridContainer"]
+modulate = Color(0.15875, 0.0606029, 0.138639, 1)
+scale = Vector2(1152, 648)
+texture = SubResource("CanvasTexture_wfvo8")
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_type_variation = &"HeadingLabel"
+text = "Tic Tac Toe"
+
+[node name="Button" type="Button" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Comenzar"
