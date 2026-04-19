@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0kw5c1li4i3t"]
+
+[ext_resource type="Script" uid="uid://b8fa6a3jf3plj" path="res://scenes/background/scripts/background.gd" id="1_bkp1e"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_y0upk"]
+
+[node name="Background" type="Node2D"]
+script = ExtResource("1_bkp1e")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.15875, 0.0606029, 0.138639, 1)
+scale = Vector2(1152, 648)
+texture = SubResource("CanvasTexture_y0upk")
+centered = false

@@ -1,0 +1,27 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dqhp174f0kn8n"]
+
+[ext_resource type="StyleBox" uid="uid://cv0p5kb5g7hqq" path="res://themes/primary_btn_focus.tres" id="1_g21io"]
+[ext_resource type="StyleBox" uid="uid://dlgyqkrs2erlh" path="res://themes/primary_btn_hover.tres" id="2_7ceur"]
+[ext_resource type="StyleBox" uid="uid://ovmwjp187db8" path="res://themes/primary_btn.tres" id="3_uobgu"]
+[ext_resource type="StyleBox" uid="uid://d2pbsymudo6qv" path="res://themes/primary_btn_pressed.tres" id="4_puucq"]
+[ext_resource type="FontFile" uid="uid://dxnqfobs0ora6" path="res://design/fonts/hydro-squad/HydroSquadExtraExpanded-1WMe.otf" id="5_1mjdo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s5e0q"]
+
+[resource]
+Button/styles/focus = ExtResource("1_g21io")
+Button/styles/hover = ExtResource("2_7ceur")
+Button/styles/hover_pressed = ExtResource("2_7ceur")
+Button/styles/normal = ExtResource("3_uobgu")
+Button/styles/pressed = ExtResource("4_puucq")
+HeadingLabel/base_type = &"Label"
+HeadingLabel/colors/font_color = Color(0.996372, 0.870592, 0.494228, 1)
+HeadingLabel/colors/font_outline_color = Color(0.834201, 0.675305, 0.0598774, 1)
+HeadingLabel/colors/font_shadow_color = Color(0.724648, 0.585333, 0.0457983, 1)
+HeadingLabel/constants/line_spacing = 16
+HeadingLabel/constants/outline_size = 2
+HeadingLabel/constants/shadow_offset_x = 4
+HeadingLabel/constants/shadow_offset_y = 4
+HeadingLabel/font_sizes/font_size = 64
+HeadingLabel/fonts/font = ExtResource("5_1mjdo")
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_s5e0q")
