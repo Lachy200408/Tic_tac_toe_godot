@@ -1,14 +1,127 @@
-[gd_scene load_steps=2 format=3 uid="uid://5ym8bkrymrrs"]
+[gd_scene load_steps=6 format=3 uid="uid://5ym8bkrymrrs"]
 
 [ext_resource type="Script" uid="uid://wte4rpmqr42t" path="res://scenes/game/scripts/game.gd" id="1_us4kt"]
+[ext_resource type="Theme" uid="uid://dqhp174f0kn8n" path="res://themes/main_theme.tres" id="2_7h61r"]
+[ext_resource type="PackedScene" uid="uid://bhho34cua5eqj" path="res://scenes/game/scenes/grid.tscn" id="3_0sr1o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sr1o"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kelw5"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_us4kt")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
+theme = ExtResource("2_7h61r")
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="Label" type="Label" parent="CenterContainer"]
+[node name="Table" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
-text = "Game"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="BackgroundWhite" type="Panel" parent="MarginContainer/Table"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0sr1o")
+
+[node name="BackgroundBlack" type="Panel" parent="MarginContainer/Table"]
+custom_minimum_size = Vector2(224, 224)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_kelw5")
+
+[node name="Grids" type="GridContainer" parent="MarginContainer/Table"]
+custom_minimum_size = Vector2(224, 224)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 3
+
+[node name="Grid" parent="MarginContainer/Table/Grids" instance=ExtResource("3_0sr1o")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Grid2" parent="MarginContainer/Table/Grids" instance=ExtResource("3_0sr1o")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Grid3" parent="MarginContainer/Table/Grids" instance=ExtResource("3_0sr1o")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Grid4" parent="MarginContainer/Table/Grids" instance=ExtResource("3_0sr1o")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Grid5" parent="MarginContainer/Table/Grids" instance=ExtResource("3_0sr1o")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Grid6" parent="MarginContainer/Table/Grids" instance=ExtResource("3_0sr1o")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Grid7" parent="MarginContainer/Table/Grids" instance=ExtResource("3_0sr1o")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Grid8" parent="MarginContainer/Table/Grids" instance=ExtResource("3_0sr1o")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Grid9" parent="MarginContainer/Table/Grids" instance=ExtResource("3_0sr1o")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Buttons" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Buttons"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="AgainBtn" type="Button" parent="MarginContainer/Buttons/HBoxContainer"]
+layout_mode = 2
+text = "Nuevo"
+
+[node name="UndoBtn" type="Button" parent="MarginContainer/Buttons/HBoxContainer"]
+layout_mode = 2
+text = "Deshacer"

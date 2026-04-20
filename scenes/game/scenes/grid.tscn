@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhho34cua5eqj"]
+
+[ext_resource type="Script" uid="uid://bo70n5qqy7ev4" path="res://scenes/game/scripts/grid.gd" id="1_nx557"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kiyf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nx557"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6pf7a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vlxt0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b8r00"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jw6j1"]
+
+[node name="Grid" type="MarginContainer"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_nx557")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8kiyf")
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Figure" type="Sprite2D" parent="Center"]
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nx557")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6pf7a")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vlxt0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_b8r00")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jw6j1")
+action_mode = 0
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
