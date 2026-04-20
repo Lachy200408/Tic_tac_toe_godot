@@ -14,9 +14,9 @@ func on_lose() -> void:
 
 
 func on_init() -> void:
-	var game = game_sc.instantiate()
-	game.on_win = on_win
-	game.on_lose = on_lose
+	var game = game_sc.instantiate() as Game
+	game.on_win.connect(on_win)
+	game.on_lose.connect(on_lose)
 	self.switch_child(game)
 
 
