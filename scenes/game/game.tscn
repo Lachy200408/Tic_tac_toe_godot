@@ -6,6 +6,11 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sr1o"]
 bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -105,6 +110,39 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Result" type="Panel" parent="MarginContainer/Table"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(192, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_0sr1o")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Table/Result"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/Table/Result/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "El ganador es:"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Table/Result/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="WinnerIcon" type="Sprite2D" parent="MarginContainer/Table/Result/HBoxContainer/CenterContainer"]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+
 [node name="Buttons" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -125,3 +163,6 @@ text = "Nuevo"
 [node name="UndoBtn" type="Button" parent="MarginContainer/Buttons/HBoxContainer"]
 layout_mode = 2
 text = "Deshacer"
+
+[connection signal="pressed" from="MarginContainer/Buttons/HBoxContainer/AgainBtn" to="." method="_on_again_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/HBoxContainer/UndoBtn" to="." method="_on_undo_btn_pressed"]
